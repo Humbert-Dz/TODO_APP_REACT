@@ -1,6 +1,6 @@
 import { useForm } from "../hooks/useForm";
 
-const TodoForm = () => {
+const TodoForm = ({handlerAddTodo}) => {
   //uso de custom hook
   const { todoInput, onInputChange, onResetForm } = useForm({
     todoInput: "",
@@ -10,7 +10,9 @@ const TodoForm = () => {
     //previene accion por default
     event.preventDefault();
 
-    //
+    if(todoInput.length <= 2) return;
+
+    handlerAddTodo({id: new Date().getTime(), description: todoInput, done: false});
 
     //resetea el formulario
     onResetForm();
