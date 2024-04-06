@@ -4,7 +4,7 @@ export const reducer = (state = [], action) => {
 
   switch (type) {
     case "[TODO] Add Todo":
-      return [...state, payload];
+      return [payload, ...state];
     case "[TODO] Delete Todo":
       return state.filter((todo) => todo.id !== payload);
     case "[TODO] toggle todo":

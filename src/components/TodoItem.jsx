@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TodoItem = ({ id, description, done, handlerToggleTodo }) => {
+const TodoItem = ({ id, description, done, handlerToggleTodo, handlerDeleteTodo }) => {
   const [checkbox, setCheckbox] = useState(done);
 
   return (
@@ -23,10 +23,10 @@ const TodoItem = ({ id, description, done, handlerToggleTodo }) => {
               <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
             </svg>
           </span>
-          <span className="todo__description">{description}</span>
+          <span className={"todo__description" + (checkbox ? " todo__completed" : "") }>{description}</span>
         </label>
       </div>
-      <button className="btn__delete" title="Eliminar tarea"></button>
+      <button className="btn__delete" title="Eliminar tarea" onClick={() => { handlerDeleteTodo(id) }} ></button>
     </li>
   );
 };

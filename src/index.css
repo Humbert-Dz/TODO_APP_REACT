@@ -50,7 +50,8 @@ body {
     -30px 30px rgba(255, 255, 255, 0.4), -45px 45px rgba(255, 255, 255, 0.1);
   transform: translateX(-200%);
   font-size: var(--secondary-font-size);
-  animation: traslate 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation: traslate 0.5s ease forwards;
+  overflow: hidden;
 }
 
 .card__input {
@@ -81,6 +82,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transform: translateX(100%);
+  animation: scaleUp 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
 }
 
 .card__list {
@@ -101,15 +104,15 @@ body {
 }
 
 .checkbox-wrapper-46 {
-  flex-grow: 0.95;;
+  flex-grow: 0.95;
 }
 
 .cbx {
   display: flex;
   align-items: center;
   width: 100%;
-  border-radius: .2rem;
-  transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-radius: 0.2rem;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .cbx:hover {
@@ -117,7 +120,12 @@ body {
 }
 
 .cbx:active {
-  transform: scale(.99);
+  transform: scale(0.99);
+}
+
+.todo__completed {
+  color: grey;
+  text-decoration: wavy line-through;
 }
 
 .checkbox-wrapper-46 .cbx {
@@ -227,6 +235,12 @@ body {
 }
 
 @keyframes traslate {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
   to {
     transform: translateX(0);
   }

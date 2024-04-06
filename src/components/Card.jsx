@@ -16,7 +16,7 @@ const Card = () => {
   return (
     <div className="card__container">
       <TodoForm handlerAddTodo={handlerAddTodo} />
-      <TodosList todos={todos} handlerToggleTodo={handlerToggleTodo}/>
+      <TodosList todos={todos} handlerToggleTodo={handlerToggleTodo} handlerDeleteTodo={handlerDeleteTodo} />
     </div>
   );
 };
