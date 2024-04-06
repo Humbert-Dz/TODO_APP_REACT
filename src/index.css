@@ -109,10 +109,15 @@ body {
   align-items: center;
   width: 100%;
   border-radius: .2rem;
+  transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .cbx:hover {
   background-color: var(--todo-hover);
+}
+
+.cbx:active {
+  transform: scale(.99);
 }
 
 .checkbox-wrapper-46 .cbx {

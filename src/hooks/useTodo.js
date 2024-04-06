@@ -6,11 +6,9 @@ const initialTodos = () => {
   return JSON.parse(localStorage.getItem("todos")) || [];
 };
 
-const algo = () => { return [{id: 1, description: 'tengo hambre', done: true}] };
-
 export const useTodo = () => {
   //estado reducer
-  const [ todos, distpach ] = useReducer(reducer, algo());
+  const [ todos, distpach ] = useReducer(reducer, initialTodos());
 
   //al cambiar los todos, guardarlos en el localstorage
   useEffect(() => {

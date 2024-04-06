@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const TodoItem = ({ id, description, done, handlerToggleTodo }) => {
   const [checkbox, setCheckbox] = useState(done);
 
   return (
     <li className="todo__item">
-      <div className="checkbox-wrapper-46" title={ !checkbox ? "Marcar tarea como completada" : "Desmarcar tarea como completada" }
-      onClick={() => { handlerToggleTodo(id) }}>
+      <div className="checkbox-wrapper-46" title={ !checkbox ? "Marcar tarea como completada" : "Desmarcar tarea como completada" }>
         <input
           type="checkbox"
           name="checkbox"
@@ -15,6 +14,7 @@ const TodoItem = ({ id, description, done, handlerToggleTodo }) => {
           checked={checkbox}
           onChange={() => {
             setCheckbox(!checkbox);
+            handlerToggleTodo(id);
           }}
         />
         <label htmlFor={id} className="cbx">
@@ -26,7 +26,7 @@ const TodoItem = ({ id, description, done, handlerToggleTodo }) => {
           <span className="todo__description">{description}</span>
         </label>
       </div>
-      <button className="btn__delete"></button>
+      <button className="btn__delete" title="Eliminar tarea"></button>
     </li>
   );
 };
